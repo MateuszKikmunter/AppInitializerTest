@@ -1,5 +1,6 @@
-import { ConfigurationService } from './core/configuration.service';
 import { Component, OnInit } from '@angular/core';
+
+import { ConfigurationService } from './core/configuration.service';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,6 @@ export class AppComponent implements OnInit{
   constructor(private configurationService: ConfigurationService) {}
 
   ngOnInit(): void {
-    this.configurationService.getConfiguration().then(cfg => console.log(cfg));
+    console.log(this.configurationService.configuration);
   }
 }

@@ -5,9 +5,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { ConfigurationService } from './core/configuration.service';
+import { LoadService } from './core/load.service';
 
-export function loadConfigurations(configurationService: ConfigurationService) {
+export function loadConfigurations(configurationService: LoadService) {
   return () => configurationService.getConfiguration();
 }
 
@@ -24,7 +24,7 @@ export function loadConfigurations(configurationService: ConfigurationService) {
     {
       provide: APP_INITIALIZER,
       useFactory: loadConfigurations,
-      deps: [ConfigurationService],
+      deps: [LoadService],
       multi: true
     }
   ],
