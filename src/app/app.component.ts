@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { ConfigurationService } from './core/configuration.service';
 
@@ -7,13 +7,18 @@ import { ConfigurationService } from './core/configuration.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
-  
-  title = 'AppInitializerTest';
+export class AppComponent implements OnInit, OnDestroy {
 
   constructor(private configurationService: ConfigurationService) {}
 
   ngOnInit(): void {
-    console.log(this.configurationService.configuration);
+  }
+
+  ngOnDestroy(): void {
+    
+  }
+
+  refreshConfig(): void {
+    this.configurationService.refreshConfig();
   }
 }

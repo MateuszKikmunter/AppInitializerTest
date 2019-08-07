@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { LoadService } from './core/load.service';
+import { DisplayComponent } from './display/display.component';
 
 export function loadConfigurations(configurationService: LoadService) {
   return () => configurationService.getConfiguration();
@@ -13,7 +14,8 @@ export function loadConfigurations(configurationService: LoadService) {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DisplayComponent
   ],
   imports: [
     BrowserModule,
